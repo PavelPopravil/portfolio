@@ -1,0 +1,25 @@
+{
+  "name": "portfolio",
+  "description": "",
+  "main": "gulpfile.js",
+  "authors": [
+    "PavelPopravil"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/PavelPopravil/portfolio",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap-sass": "*",
+    "normalize-css": "normalize.css#^5.0.0",
+    "owl.carousel": "*",
+    "svg4everybody": "^2.1.4",
+    "reset-css": "^2.2.0"
+  }
+}

@@ -1,0 +1,91 @@
+@import 'settings';
+
+// preloader
+.preloader {}
+
+body {
+	
+}
+
+// sections
+.app {
+	min-width: 320px;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+.main-header {
+	position: relative;
+	width: 100%;
+	background-color: $gray-color;
+	padding: 30px 90px;
+	@extend .clearfix;
+	
+	&:after {
+		content: '';
+		position: absolute;
+		bottom: 0px;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: url(../img/line.png) center no-repeat;
+	}
+}
+.main-content {
+	flex: 1 0 auto;
+}
+.main-footer {
+	flex: 0 0 auto;
+}
+// moduls
+
+// header__logo
+.header__logo {
+	float: left;
+	
+	h1 {
+		position: absolute;
+		left: -9999px;
+	}
+}
+
+// header__socials
+
+
+.socials {
+	list-style-type: none;
+	margin: 0; padding: 0;	
+}
+
+.header__socials {
+	float: right;
+	margin-top: 5px;
+}
+.socials__item {
+	margin-left: 10px;
+	display: inline-block;
+	
+	&:first-child {
+		margin-left: 0;
+	}
+
+}
+
+.socials__link {
+	
+	
+}
+.hiden {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.socials__icon {
+	font-size: 2rem;
+	fill: $icon-color;
+	&:hover {
+		fill: $blue-color;
+	}
+}
+
