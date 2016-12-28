@@ -2,13 +2,19 @@
 /* VARIABLES */
 
 // fonts
-$main-font: ;
+$main-font: 'firasansbook', sans-serif;
+$light-font: 'firasanslight', sans-serif;
+$bold-font: 'firasansmedium', sans-serif;
+$skill-font: 'ProximaNovaCondSemibold', sans-serif;
 
 // colors
 $main-color: ;
+$white-color: #fff;
 $icon-color: #58697a;
 $gray-color: #eff3f7;
-$blue-color: #3ba8c0;
+$accent-color: #3ba8c0;
+$gray-font-c: #959aa8;
+$dark-gray-color: #4a545d;
 
 * {
 	box-sizing: border-box;
@@ -21,6 +27,15 @@ $blue-color: #3ba8c0;
 	&:after {
 		clear: both;
 	}
+}
+.dots-off {
+	margin: 0; padding: 0;
+	list-style-type: none;
+}
+img {
+	height: auto;
+	max-width: 100%;
+	display: block;
 }
 /* CONNECT GOOGLE FONTS */
 
@@ -51,7 +66,10 @@ $blue-color: #3ba8c0;
 }
 
 // CONNECT LOCAL FONTS
-@include font-face(RobotoLight, 'RobotoLight');
+@include font-face(firasansbook, 'firasansbook');
+@include font-face(firasanslight, 'firasanslight');
+@include font-face(firasansmedium, 'firasansmedium');
+@include font-face(ProximaNovaCondSemibold, 'ProximaNovaCondSemibold');
 
 // USE THIS MIXIN
 @mixin font-type($color, $font-family, $font-size, $line-height, $letter-spacing) {
@@ -159,8 +177,8 @@ textarea {
   @else if $media == sm {
     @media only screen and (max-width: 767px) { @content; }
   }
-  @else if $media == md {
-   @media only screen and(max-width: 991px) { @content; }
+  @else if $media == tablet {
+   @media only screen and(max-width: 980px) { @content; }
   }
   @else if $media == lg {
    @media only screen and (max-width: 1199px) { @content; }

@@ -36,7 +36,7 @@
     <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/old_ie.css" /><![endif]-->
     <!--[if lt IE 7 ]><script type="text/javascript">window.location.href="ie6_close/index_ru.html";</script><![endif]-->
 
-    <title>Project#</title>
+    <title>Portfolio</title>
 </head>
 <body>
     <!--[if lt IE 10]>
@@ -51,57 +51,276 @@
     
       <header class="main-header">
         
-        <!-- header__logo -->
-        <a href="#" class="header__logo">
-          <img src="img/logo.png" alt="logo">
-          <h1>Shyshchyts Pavel Portfolio</h1>
-        </a>
-        
-        <!-- header__socials -->
-        <ul class="header__socials socials">
+        <div class="header-wrap">
+          <!-- header__logo -->
+          <a href="#" class="header__logo">
+            <img src="img/logo.png" alt="logo">
+            <h1>Shyshchyts Pavel Portfolio</h1>
+          </a>
+          
+          <!-- header__socials -->
+          <ul class="header__socials socials">
 
-          <li class="socials__item">
-            <a href="#" class="socials__link">
-              <svg class="socials__icon icon icon-vk-with-circle" title="vkontakte">
-                <use xlink:href="img/sprite.svg#vk-with-circle"></use>
-              </svg>
-            </a>
-          </li>
+            <li class="socials__item">
+              <a href="#" class="socials__link">
+                <svg class="socials__icon icon icon-vk-with-circle" title="vkontakte">
+                  <use xlink:href="img/sprite.svg#vk-with-circle"></use>
+                </svg>
+              </a>
+            </li>
 
-          <li class="socials__item">
-            <a href="#" class="socials__link">
-              <svg class="socials__icon icon icon-twitter-with-circle" title="twitter">
-                <use xlink:href="img/sprite.svg#twitter-with-circle"></use>
-              </svg>
-            </a>
-          </li>
+            <li class="socials__item">
+              <a href="#" class="socials__link">
+                <svg class="socials__icon icon icon-twitter-with-circle" title="twitter">
+                  <use xlink:href="img/sprite.svg#twitter-with-circle"></use>
+                </svg>
+              </a>
+            </li>
 
-          <li class="socials__item">
-            <a href="#" class="socials__link">
-              <svg class="socials__icon icon icon-facebook-with-circle" title="facebook">
-                <use xlink:href="img/sprite.svg#facebook-with-circle"></use>
-              </svg>
-            </a>
-          </li>
+            <li class="socials__item">
+              <a href="#" class="socials__link">
+                <svg class="socials__icon icon icon-facebook-with-circle" title="facebook">
+                  <use xlink:href="img/sprite.svg#facebook-with-circle"></use>
+                </svg>
+              </a>
+            </li>
 
-          <li class="socials__item">
-            <a href="#" class="socials__link">
-              <svg class="socials__icon icon icon-github-with-circle" title="github">
-                <use xlink:href="img/sprite.svg#github-with-circle"></use>
-              </svg>
-            </a>
-          </li>
+            <li class="socials__item">
+              <a href="#" class="socials__link">
+                <svg class="socials__icon icon icon-github-with-circle" title="github">
+                  <use xlink:href="img/sprite.svg#github-with-circle"></use>
+                </svg>
+              </a>
+            </li>
 
-        </ul>
+          </ul>
+          
+          <!-- header__burger -->
+          <div class="header__burger burger js-trigger">
+            <span class="burger__item"></span>
+            <span class="burger__item"></span>
+            <span class="burger__item"></span>
+          </div>
+
+        </div>
 
       </header>
       
-      <main class="main-content">
+      <div class="container">
         
-      </main>
+        <!-- sidebar -->
+        <aisde class="sidebar">
+          
+          <!-- navigation -->
+          <nav class="sidebar__nav nav">
+
+            <ul class="nav__list">
+              <li class="nav__item"><a href="#" class="nav__link nav__link_active">Обо мне</a></li>
+              <li class="nav__item"><a href="#" class="nav__link">Мои работы</a></li>
+              <li class="nav__item"><a href="#" class="nav__link nav__link_gray">Связаться со мной</a></li>
+            </ul>
+
+          </nav>
+          
+          <!-- contacts -->
+          <ul class="sidebar_contacts contacts">
+
+            <li class="contacts__item">
+             <h3 class="contacts__title">Контакты</h3>
+            </li>
+
+            <li class="contacts__item">
+              <a href="mailto:pavelfrontend@gmail.com" class="contacts__link">
+                <svg class="contacts__icon icon icon-mail_outline" title="mail">
+                  <use xlink:href="img/sprite.svg#mail_outline"></use>
+                </svg>
+                <span>pavelfrontend@gmail .com</span>
+              </a>
+            </li>
+
+            <li class="contacts__item">
+              <a href="tel:+375336027494" class="contacts__link">
+                <svg class="contacts__icon icon icon-phone_outline" title="phone">
+                  <use xlink:href="img/sprite.svg#phone-outline"></use>
+                </svg>
+                <span>80336027494</span>
+              </a>
+            </li>
+
+            <li class="contacts__item">
+              <a href="skype:pasuk_rovny?call" class="contacts__link">
+                <svg class="contacts__icon icon icon-skype" title="skype">
+                  <use xlink:href="img/sprite.svg#skype"></use>
+                </svg>
+                <span>pasuk_rovny</span>
+              </a>
+            </li>
+          </ul>
+
+        </aisde>
+        
+        <!-- info section -->
+        <section class="info">
+          
+          <!-- info__title -->
+          <header class="info-header">
+            <h2 class="info__title">Основная информация</h2>
+          </header>
+             
+          <!-- info-body -->
+          <div class="info-body">
+            
+            <!-- info__photo -->
+            <figure class="info-body_photo-wrap">
+
+              <img src="img/photo.jpg" alt="photo" class="info-body__photo">
+
+            </figure>
+            
+            <div class="info-body__worksheet-wrap worksheet">
+              
+              <!-- worksheet list -->
+              <ul class="worksheet__list">
+                <li class="worksheet__item">
+                  <span class="worksheet__item_what">Меня зовут:</span>
+                  <span class="worksheet__item_info">Шищиц Павел Витальевич</span>
+                </li>
+                <li class="worksheet__item">
+                  <span class="worksheet__item_what">Мой возраст:</span>
+                  <span class="worksheet__item_info">24</span>
+                </li>
+                <li class="worksheet__item">
+                  <span class="worksheet__item_what">Мой город:</span>
+                  <span class="worksheet__item_info">Минск, Беларусь</span>
+                </li>
+                <li class="worksheet__item">
+                  <span class="worksheet__item_what">Моя специализация:</span>
+                  <span class="worksheet__item_info">Junior Frontend разработчик</span>
+                </li>
+                <li class="worksheet__item">
+                  <span class="worksheet__item_what">Ключевые навыки:</span>
+                  
+                  <!-- skill-box -->
+                  <ul class="skill-box__list">
+                    <li class="skill-box__item">html</li>
+                    <li class="skill-box__item">css</li>
+                    <li class="skill-box__item">javascript</li>
+                    <li class="skill-box__item">gulp</li>
+                    <li class="skill-box__item">git</li>
+                  </ul>
+
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </section>
+
+        <section class="experience">
+          
+          <!-- experience-header -->
+          <header class="experience-header">
+            <h2 class="experience__title">Опыт работы</h2>
+          </header>
+          
+          <!-- experience-body -->
+          <div class="experience-body">
+            
+            <ul class="experience__list">
+
+              <li class="experience__item">
+                <svg class="experience__item-icon icon icon-bag" title="bag">
+                  <use xlink:href="img/sprite.svg#bag"></use>
+                </svg>
+                <div class="experience__item-work">
+                  
+                  <span class="work-place">&quot;ООО NotePad&quot; - Инсталеровщик</span>
+                  <span class="work-date">Май 2015 - по настоящее время</span>
+
+                </div>
+              </li>
+
+              <li class="experience__item">
+                <svg class="experience__item-icon icon icon-bag" title="bag">
+                  <use xlink:href="img/sprite.svg#bag"></use>
+                </svg>
+                <div class="experience__item-work">
+                  
+                  <span class="work-place">&quot;ООО NotePad&quot; - Инсталеровщик</span>
+                  <span class="work-date">Май 2015 - по настояшее время</span>
+
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+        </section>
+
+        <section class="education">
+          
+          <!-- education-header -->
+          <header class="education-header">
+            <h2 class="education__title">Образование</h2>
+          </header>
+
+          <!-- education-body -->
+          <div class="education-body">
+            
+            <ul class="education__list">
+
+              <li class="education__item">
+              
+                <svg class="education__item-icon icon icon-study" title="study">
+                  <use xlink:href="img/sprite.svg#study"></use>
+                </svg>
+                <div class="education__item-study">
+                  
+                  <span class="education-place">Высшее образование, <a href="http://www.bseu.by/">БГЭУ</a></span>
+                  <span class="education-date">Май 2015 - по настояшее время</span>
+
+                </div>
+
+              </li>
+              
+              <li class="education__item">
+              
+                <svg class="education__item-icon icon icon-file" title="file">
+                  <use xlink:href="img/sprite.svg#file"></use>
+                </svg>
+                <div class="education__item-study">
+                  
+                  <span class="education-place">Курсы <a href="http://solaris.online/">Solaris.online</a></span>
+                  <span class="education-date">Май 2016 - по Сентябрь 2016</span>
+
+                </div>
+
+              </li>
+
+            </ul>
+
+          </div>
+
+        </section>
+        
+      </div>
       
       <footer class="main-footer">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente molestiae a porro deserunt numquam, dolores unde possimus cupiditate, quia aspernatur repellat ut aliquam praesentium quidem officia itaque eum hic? Autem.</p>
+
+        <div class="footer-wrap">
+          
+          <!-- lock -->
+          <a href="" class="lock">
+            <svg class="lock__icon icon icon-lock" title="lock">
+              <use xlink:href="img/sprite.svg#lock"></use>
+            </svg>
+          </a>
+
+          <!-- copyright -->
+          <p class="copyright">&copy; 2015. Это мой сайт, пожалуйста, не копируйте и не воруйте его</p>
+        </div>
+
       </footer>
 
     </div>
