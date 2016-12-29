@@ -36,7 +36,7 @@
     <!--[if lte IE 8]><link rel="stylesheet" type="text/css" href="css/old_ie.css" /><![endif]-->
     <!--[if lt IE 7 ]><script type="text/javascript">window.location.href="ie6_close/index_ru.html";</script><![endif]-->
 
-    <title>Главная</title>
+    <title>Мои контакты</title>
 </head>
 <body>
     <!--[if lt IE 10]>
@@ -101,9 +101,9 @@
             <span class="burger__item"></span>
             <span class="burger__item"></span>
             <ul class="dropdown">
-              <li class="dropdown__item"><a href="index.html" class="dropdown__link dropdown__link_active">Обо мне</a></li>
+              <li class="dropdown__item"><a href="index.html" class="dropdown__link">Обо мне</a></li>
               <li class="dropdown__item"><a href="portfolio.html" class="dropdown__link">Мои работы</a></li>
-              <li class="dropdown__item"><a href="contact.html" class="dropdown__link">Связаться со мной</a></li>
+              <li class="dropdown__item"><a href="contact.html" class="dropdown__link dropdown__link_active">Связаться со мной</a></li>
             </ul>
           </div>
 
@@ -120,9 +120,9 @@
           <nav class="sidebar__nav nav">
 
             <ul class="nav__list">
-              <li class="nav__item"><a href="index.html" class="nav__link nav__link_active">Обо мне</a></li>
+              <li class="nav__item"><a href="index.html" class="nav__link">Обо мне</a></li>
               <li class="nav__item"><a href="portfolio.html" class="nav__link">Мои работы</a></li>
-              <li class="nav__item"><a href="contact.html" class="nav__link nav__link_gray">Связаться со мной</a></li>
+              <li class="nav__item"><a href="contact.html" class="nav__link nav__link_active">Связаться со мной</a></li>
             </ul>
 
           </nav>
@@ -163,151 +163,44 @@
           </ul>
 
         </aisde>
+      
+      <!-- contact-me SECTION -->
+      <section class="contact-me">
         
-        <!-- info section -->
-        <section class="info">
+        <header class="contact-me__header">
+          <h2 class="contact-me__title">У вас интересный проект? Напишите мне!</h2>
+        </header>
+
+        <div class="contact-me__body">
           
-          <!-- info__title -->
-          <header class="info-header">
-            <h2 class="info__title">Основная информация</h2>
-          </header>
-             
-          <!-- info-body -->
-          <div class="info-body">
+          <!-- form -->
+          <form class="contact-me__form">
             
-            <!-- info__photo -->
-            <figure class="info-body_photo-wrap">
+            <label for="name-field">Имя
+              <input type="text" id="name-field" placeholder="Как к вам обращаться?">
+            </label>
 
-              <img src="img/photo.jpg" alt="photo" class="info-body__photo">
+            <label for="email-field">Email
+              <input type="email" id="email-field" placeholder="Куда мне писать">
+            </label>
 
-            </figure>
+            <label for="massage-field">Сообщение
+              <textarea name="" id="massage-field" placeholder="Кратко в чём суть"></textarea>
+            </label>
             
-            <div class="info-body__worksheet-wrap worksheet">
+            <div class="button-cont">
               
-              <!-- worksheet list -->
-              <ul class="worksheet__list">
-                <li class="worksheet__item">
-                  <span class="worksheet__item_what">Меня зовут:</span>
-                  <span class="worksheet__item_info">Шищиц Павел Витальевич</span>
-                </li>
-                <li class="worksheet__item">
-                  <span class="worksheet__item_what">Мой возраст:</span>
-                  <span class="worksheet__item_info">24 года</span>
-                </li>
-                <li class="worksheet__item">
-                  <span class="worksheet__item_what">Мой город:</span>
-                  <span class="worksheet__item_info">Минск, Беларусь</span>
-                </li>
-                <li class="worksheet__item">
-                  <span class="worksheet__item_what">Моя специализация:</span>
-                  <span class="worksheet__item_info">Junior Frontend разработчик</span>
-                </li>
-                <li class="worksheet__item">
-                  <span class="worksheet__item_what">Ключевые навыки:</span>
-                  
-                  <!-- skill-box -->
-                  <ul class="skill-box__list">
-                    <li class="skill-box__item">html</li>
-                    <li class="skill-box__item">css</li>
-                    <li class="skill-box__item">javascript</li>
-                    <li class="skill-box__item">gulp</li>
-                    <li class="skill-box__item">git</li>
-                  </ul>
+              <button class="contact-me__button" type="submit">Отправить</button>
 
-                </li>
-              </ul>
+              <button class="contact-me__button contact-me__button_dark" type="reset">Очистить</button>
+
             </div>
+       
+          </form> 
 
-          </div>
+        </div>
 
-        </section>
-
-        <section class="experience">
-          
-          <!-- experience-header -->
-          <header class="experience-header">
-            <h2 class="experience__title">Опыт работы</h2>
-          </header>
-          
-          <!-- experience-body -->
-          <div class="experience-body">
-            
-            <ul class="experience__list">
-
-              <li class="experience__item">
-                <svg class="experience__item-icon icon icon-bag" title="bag">
-                  <use xlink:href="img/sprite.svg#bag"></use>
-                </svg>
-                <div class="experience__item-work">
-                  
-                  <span class="work-place">&quot;ООО NotePad&quot; - Инсталеровщик</span>
-                  <span class="work-date">Май 2015 - по настоящее время</span>
-
-                </div>
-              </li>
-
-              <li class="experience__item">
-                <svg class="experience__item-icon icon icon-bag" title="bag">
-                  <use xlink:href="img/sprite.svg#bag"></use>
-                </svg>
-                <div class="experience__item-work">
-                  
-                  <span class="work-place">&quot;ООО NotePad&quot; - Инсталеровщик</span>
-                  <span class="work-date">Май 2015 - по настояшее время</span>
-
-                </div>
-              </li>
-
-            </ul>
-          </div>
-
-        </section>
-
-        <section class="education">
-          
-          <!-- education-header -->
-          <header class="education-header">
-            <h2 class="education__title">Образование</h2>
-          </header>
-
-          <!-- education-body -->
-          <div class="education-body">
-            
-            <ul class="education__list">
-
-              <li class="education__item">
-              
-                <svg class="education__item-icon icon icon-study" title="study">
-                  <use xlink:href="img/sprite.svg#study"></use>
-                </svg>
-                <div class="education__item-study">
-                  
-                  <span class="education-place">Высшее образование, <a href="http://www.bseu.by/">БГЭУ</a></span>
-                  <span class="education-date">Май 2015 - по настояшее время</span>
-
-                </div>
-
-              </li>
-              
-              <li class="education__item">
-              
-                <svg class="education__item-icon icon icon-file" title="file">
-                  <use xlink:href="img/sprite.svg#file"></use>
-                </svg>
-                <div class="education__item-study">
-                  
-                  <span class="education-place">Курсы <a href="http://solaris.online/">Solaris.online</a></span>
-                  <span class="education-date">Май 2016 - по Сентябрь 2016</span>
-
-                </div>
-
-              </li>
-
-            </ul>
-
-          </div>
-
-        </section>
+      </section>
         
       </div>
       

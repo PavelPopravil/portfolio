@@ -17,8 +17,8 @@ $(document).ready(function() {
 	$('.js-trigger').on('click', function(e) {
 
 		e.preventDefault();
-
-		$('.dropdown-menu').toggleClass('open');
+		$(this).toggleClass('opened');
+		$('.dropdown').toggleClass('open');
 
 	});
 
