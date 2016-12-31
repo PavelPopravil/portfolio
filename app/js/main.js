@@ -14,7 +14,7 @@ $(document).ready(function() {
 	}
 
 	// dropdown menu
-	$('.responsive-menu').on('click', function(e) {
+	$('.js-trigger').on('click', function(e) {
 
 		e.preventDefault();
 		$('.js-trigger').toggleClass('opened');

@@ -4,10 +4,6 @@
   height: 1em;
   fill: currentColor; }
 
-.icon-accept {
-  font-size: 2.4rem;
-  width: 1em; }
-
 .icon-bag {
   font-size: 4.25rem;
   width: 1.05882em; }
@@ -379,15 +375,10 @@ body {
   .socials__icon:hover {
     fill: #3ba8c0; }
 
-.responsive-menu {
+.burger {
+  display: none;
   margin-left: auto;
   position: relative;
-  display: none; }
-  @media only screen and (max-width: 980px) {
-    .responsive-menu {
-      display: block; } }
-
-.burger {
   z-index: 0;
   width: 30px;
   height: 30px;
@@ -416,6 +407,9 @@ body {
     background-color: #58697a;
     -webkit-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out; }
+  @media only screen and (max-width: 980px) {
+    .burger {
+      display: block; } }
 
 .dropdown {
   display: -webkit-box;
@@ -440,8 +434,8 @@ body {
   overflow: hidden;
   position: absolute;
   z-index: 5;
-  right: 2px;
-  top: 34px; }
+  right: 6%;
+  top: 75px; }
   .dropdown.open {
     visibility: visible; }
   .dropdown__item {

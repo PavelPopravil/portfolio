@@ -181,15 +181,10 @@ body {
 }
 
 // burger
-.responsive-menu {
+.burger {
+	display: none;
 	margin-left: auto;
 	position: relative;
-	display: none;
-	@include respond-to(tablet) {
-    	display: block;
-	}
-}
-.burger {
 	z-index: 0;
     width: 30px; height: 30px;
     padding: 3px;
@@ -222,6 +217,9 @@ body {
 	    background-color: $icon-color;
 	    transition: all 0.2s ease-out;
 	}
+	@include respond-to(tablet) {
+    	display: block;
+	}
    
 }
 .dropdown {
@@ -237,7 +235,7 @@ body {
 	border-radius: 4px; overflow: hidden;
 
 	position: absolute; z-index: 5;
-	right: 2px; top: 34px;
+	right: 6%; top: 75px;
 
 	&.open {
 		visibility: visible;
