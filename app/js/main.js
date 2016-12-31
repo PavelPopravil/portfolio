@@ -14,12 +14,14 @@ $(document).ready(function() {
 	}
 
 	// dropdown menu
-	$('.js-trigger').on('click', function(e) {
+	$('.responsive-menu').on('click', function(e) {
 
 		e.preventDefault();
-		$(this).toggleClass('opened');
+		$('.js-trigger').toggleClass('opened');
+
 		$('.dropdown').toggleClass('open');
 
 	});
+
 
 });
