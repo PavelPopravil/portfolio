@@ -142,6 +142,12 @@ body {
 }
 // header__logo
 .header__logo {
+	img {
+		max-width: 250px;
+		@include respond-to(mobile) {
+			max-width: 200px;
+		}
+	}
 	h1 {
 		position: absolute;
 		left: -9999px;
@@ -285,6 +291,25 @@ body {
 
 
 // navigation
+.sidebar {
+
+}
+.slide {
+	transition: all .5s;
+	
+	opacity: 0;
+	&.to-right {
+		transform: translateX(-30%);
+	}
+	&.to-left {
+		transform: translateX(30%);
+	}
+	&.active {
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
 .sidebar__nav {
 	margin-bottom: 20px;
 	@include respond-to(tablet) {

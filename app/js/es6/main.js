@@ -1,12 +1,10 @@
-'use strict';
-
 function init() {
-
+	
 	// slide effect
-	var slides = document.querySelectorAll('.slide');
+	const slides = document.querySelectorAll('.slide');
 
 	function showSlide() {
-		slides.forEach(function (slide) {
+		slides.forEach(slide => {
 			slide.classList.add('active');
 		});
 	};
@@ -14,14 +12,15 @@ function init() {
 	window.addEventListener('load', showSlide);
 
 	// dropdown menu
-	var menuTrigger = document.querySelector('.js-trigger');
-	var dropdownMenu = document.querySelector('.dropdown');
+	const menuTrigger = document.querySelector('.js-trigger');
+	const dropdownMenu = document.querySelector('.dropdown');
 
 	function toggleMenu(e) {
 
-		e.preventDefault();
-		this.classList.toggle('opened');
-		dropdownMenu.classList.toggle('open');
+			e.preventDefault();
+			this.classList.toggle('opened');
+			dropdownMenu.classList.toggle('open');
+
 	};
 
 	menuTrigger.addEventListener('click', toggleMenu);
@@ -39,6 +38,7 @@ function init() {
 			});
 		});
 	}
+
 };
 
 window.onload = init();

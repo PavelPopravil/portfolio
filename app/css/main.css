@@ -367,6 +367,12 @@ body {
   width: 90%;
   margin: 0 auto; }
 
+.header__logo img {
+  max-width: 250px; }
+  @media only screen and (max-width: 580px) {
+    .header__logo img {
+      max-width: 200px; } }
+
 .header__logo h1 {
   position: absolute;
   left: -9999px; }
@@ -484,6 +490,24 @@ body {
       width: 90%;
       height: 2px;
       background-color: #3ba8c0; }
+
+.slide {
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  opacity: 0; }
+  .slide.to-right {
+    -webkit-transform: translateX(-30%);
+    -ms-transform: translateX(-30%);
+    transform: translateX(-30%); }
+  .slide.to-left {
+    -webkit-transform: translateX(30%);
+    -ms-transform: translateX(30%);
+    transform: translateX(30%); }
+  .slide.active {
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0);
+    opacity: 1; }
 
 .sidebar__nav {
   margin-bottom: 20px; }
