@@ -1,17 +1,41 @@
 'use strict';
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function init() {
 
 	// slide effect
 	var slides = document.querySelectorAll('.slide');
 
 	function showSlide() {
-		slides.forEach(function (slide) {
+
+		// Microsoft edge hack
+		var sliders = [].concat(_toConsumableArray(slides));
+		sliders.forEach(function (slide) {
 			slide.classList.add('active');
 		});
 	};
 
-	window.addEventListener('load', showSlide);
+	document.addEventListener('DOMContentLoaded', showSlide);
+
+	// yearsOld
+
+	if (document.body.classList.contains('home')) {
+
+		(function calcAge() {
+
+			var ageOutput = document.querySelector('[data-year]');
+			var birthDay = ageOutput.dataset.year;
+			var currentYear = new Date();
+			var birthDate = new Date(birthDay);
+			var age = currentYear.getFullYear() - birthDate.getFullYear();
+			if (currentYear.setFullYear(1992) < birthDate.setFullYear(1992)) {
+				age = age - 1;
+			}
+			console.log(age);
+			ageOutput.textContent = age;
+		})();
+	}
 
 	// dropdown menu
 	var menuTrigger = document.querySelector('.js-trigger');

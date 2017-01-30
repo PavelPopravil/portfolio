@@ -4,12 +4,38 @@ function init() {
 	const slides = document.querySelectorAll('.slide');
 
 	function showSlide() {
-		slides.forEach(slide => {
+
+		// Microsoft edge hack
+		const sliders = [...slides];
+		sliders.forEach(slide => {
 			slide.classList.add('active');
 		});
 	};
 
-	window.addEventListener('load', showSlide);
+	document.addEventListener('DOMContentLoaded', showSlide);
+
+	// yearsOld
+
+	if (document.body.classList.contains('home')) {
+
+		(function calcAge() {
+
+			const ageOutput = document.querySelector('[data-year]');
+			const birthDay = ageOutput.dataset.year;
+			const currentYear = new Date;
+			const birthDate = new Date(birthDay);
+			let age = currentYear.getFullYear() - birthDate.getFullYear();
+			if (currentYear.setFullYear(1992) < birthDate.setFullYear(1992)) {
+				age = age - 1;
+			} 
+			console.log(age);
+			ageOutput.textContent = age;
+			
+		}());
+
+	}
+	
+
 
 	// dropdown menu
 	const menuTrigger = document.querySelector('.js-trigger');
