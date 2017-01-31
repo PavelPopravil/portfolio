@@ -378,6 +378,47 @@
 
       </footer>
 
+      <div class="popup">
+        <header class="popup__header">
+          <h3 class="popup__title">Добавление проекта</h3>
+          <a class="popup__close">
+            <svg class="app__icon icon icon-cancel-circle">
+              <use xlink:href="img/sprite.svg#cancel-circle"></use>
+            </svg>
+          </a>
+        </header>
+        
+        <form  class="popup__form">
+
+          <label for="project-name" class="popup__form-title">Название проекта</label>
+          <input id="project-name" type="text" placeholder="Введите название">
+
+          <label for="add-project" class="popup__form-title">Картинка проекта</label>
+          <div class="file-upload">
+            Загрузите изображение
+            <input type="file" id="add-project">
+            <button>
+              <svg class="app__icon icon icon-cloud-download">
+                <use xlink:href="img/sprite.svg#cloud-download"></use>
+              </svg>
+            </button>
+          </div>
+          
+
+          <label for="project-url" class="popup__form-title">URL проекта</label>
+          <input type="text" id="project-url" placeholder="Добавьте ссылку">
+
+          <label for="project-description" class="popup__form-title">Описание</label>
+          <textarea name="" id="project-description" placeholder="Пара слов о вашем проекте"></textarea>
+
+          <div class="popup__button-container">
+            <button class="popup__button popup__button_blue" type="submit">Добавить</button>
+            <button class="popup__button popup__button_dark" type="reset">Стереть</button>
+          </div>
+
+        </form>
+      </div>
+
     </div>
      
 		

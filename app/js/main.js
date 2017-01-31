@@ -16,7 +16,7 @@ function init() {
 		});
 	};
 
-	document.addEventListener('DOMContentLoaded', showSlide);
+	window.addEventListener('load', showSlide);
 
 	// yearsOld
 
@@ -25,30 +25,15 @@ function init() {
 		(function calcAge() {
 
 			var ageOutput = document.querySelector('[data-year]');
-			var birthDay = ageOutput.dataset.year;
 			var currentYear = new Date();
-			var birthDate = new Date(birthDay);
+			var birthDate = new Date(1992, 10, 3);
 			var age = currentYear.getFullYear() - birthDate.getFullYear();
 			if (currentYear.setFullYear(1992) < birthDate.setFullYear(1992)) {
 				age = age - 1;
 			}
-			console.log(age);
 			ageOutput.textContent = age;
 		})();
 	}
-
-	// dropdown menu
-	var menuTrigger = document.querySelector('.js-trigger');
-	var dropdownMenu = document.querySelector('.dropdown');
-
-	function toggleMenu(e) {
-
-		e.preventDefault();
-		this.classList.toggle('opened');
-		dropdownMenu.classList.toggle('open');
-	};
-
-	menuTrigger.addEventListener('click', toggleMenu);
 
 	// svg fallbalck
 	svg4everybody({});
@@ -63,6 +48,19 @@ function init() {
 			});
 		});
 	}
+
+	// dropdown menu
+	var menuTrigger = document.querySelector('.js-trigger');
+	var dropdownMenu = document.querySelector('.dropdown');
+
+	function toggleMenu(e) {
+
+		e.preventDefault();
+		this.classList.toggle('opened');
+		dropdownMenu.classList.toggle('open');
+	};
+
+	menuTrigger.addEventListener('click', toggleMenu);
 };
 
 window.onload = init();

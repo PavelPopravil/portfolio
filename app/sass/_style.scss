@@ -760,6 +760,133 @@ body {
 	@include font-type($gray-font-c, $main-font, 16px, 20px, 0px);
 }
 
+// popup
+.popup {
+	display: flex;
+	flex-direction: column;	
+	
+	display: none;
+	opacity: 0;
+
+	width: 350px;
+	height: 500px;
+	background-color: $gray-color;
+	position: fixed;
+	top: calc(50% - (500/2)px);
+	left: calc(50% - (350/2)px);
+	border-radius: 7px;
+	overflow: hidden;
+	box-shadow: 0 0 2px rgba(#000, 0.2);
+}
+// popup__header
+.popup__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: linear-gradient(180deg,#3ba8c0 70%,#51daf8);
+	padding: 15px 10px;
+	.popup__title {
+		color: $white-color;
+		margin: 0;
+		font-size: 20px;
+	}
+
+	.popup__close {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		svg {
+			fill: $white-color;
+			font-size: 1rem;
+		}
+	}
+
+}
+// popup__form 
+.popup__form {
+	display: flex;
+	flex-direction: column;	
+	padding: 15px 20px;
+	
+	&-title {
+		@include font-type($dark-gray-color, $main-font, 18px, 28px, 0px);
+	}
+
+	input, textarea {
+		margin-bottom: 10px;
+		padding: 10px;
+		border: 0;
+		border: 1px solid $accent-color;
+		border-radius: 4px;
+		
+		@include font-type($dark-gray-color, $main-font, 16px, auto, 0px);
+
+		&::-webkit-input-placeholder       {color: $accent-color; font-size: 16px; transition: opacity 0.6s ease;}
+		&::-moz-placeholder                {color: $accent-color; font-size: 16px; transition: opacity 0.6s ease;}
+		&:-moz-placeholder                 {color: $accent-color; font-size: 16px; transition: opacity 0.6s ease;}
+		&:-ms-input-placeholder            {color: $accent-color; font-size: 16px; transition: opacity 0.6s ease;}
+		
+		&:focus::-webkit-input-placeholder       {opacity: 0;}
+		&:focus::-moz-placeholder                {opacity: 0;}
+		&:focus:-moz-placeholder                 {opacity: 0;}
+		&:focus:-ms-input-placeholder            {opacity: 0;}
+	}
+
+	textarea {
+		resize: none;
+		min-height: 100px;
+	}
+
+	.file-upload {
+		margin-bottom: 10px;
+		position: relative;
+		overflow: hidden;
+		padding: 10px;
+		border: 0;
+		border: 1px solid $accent-color;
+		background-color: $white-color;
+		border-radius: 4px;
+		@include font-type($accent-color, $main-font, 16px, auto, 0px);
+		input {
+			position: absolute;
+			top: 0; left: 0; right: 0; bottom: 0;
+			width: 100%; height: 100%;
+			opacity: 0;
+			z-index: 10;
+			cursor: pointer;
+		}
+		button {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			border: 0;
+			background-color: $accent-color;
+			width: 20%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			svg {
+				fill: $white-color;
+				font-size: 1.5rem;
+			}
+		}
+	}
+}
+// popup__button-container
+.popup__button-container {
+	display: flex;
+	justify-content: space-between;
+}
+// popup__button
+.popup__button {
+
+	@extend .contact-me__button;
+
+	&_dark {
+		@extend .contact-me__button_dark;
+	}
+}
 								// CONTACT PAGE
 // contact-me__header
 .contact-me__header{
@@ -824,17 +951,6 @@ body {
 		&:focus:-moz-placeholder                 {opacity: 0;}
 		&:focus:-ms-input-placeholder            {opacity: 0;}
 
-		&:required:invalid, &:focus:invalid {
-			box-shadow: none;
-		}
-
-		// &:invalid {
-		// 	border-color: red;
-		// }
-		
-		&:required:valid {
-			border-color: green;
-		}
 	}
 
 	textarea {
