@@ -677,6 +677,7 @@ body {
 	@include respond-to(mobile) {
 		flex-basis: calc(100%);
 	}
+
 }
 
 // hover effect
@@ -760,6 +761,31 @@ body {
 	@include font-type($gray-font-c, $main-font, 16px, 20px, 0px);
 }
 
+// portfolio-item add-project
+.add-project {
+	cursor: pointer;
+
+	&__cont {
+		@extend .portfolio-item__img;
+		border-style: dotted;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		
+		p {
+			margin: 0;
+			@include font-type($accent-color, $main-font, 16px, 20px, 0px);
+		}
+		svg {
+			fill: $accent-color;
+			font-size: 2.5rem;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+
 // popup
 .popup {
 	display: flex;
@@ -769,15 +795,36 @@ body {
 	opacity: 0;
 
 	width: 350px;
-	height: 500px;
+	min-height: 500px;
 	background-color: $gray-color;
 	position: fixed;
 	top: calc(50% - (500/2)px);
 	left: calc(50% - (350/2)px);
 	border-radius: 7px;
 	overflow: hidden;
-	box-shadow: 0 0 2px rgba(#000, 0.2);
+	box-shadow: 0 0 4px 2px rgba(#000, 0.2);
+	transition: all 1s ease;
+	z-index: 100;
 }
+
+.show-modal {
+
+	.site-container {
+		height: 100%;
+		// overflow: hidden;
+	}
+
+	.site-cache {
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: 0;
+		background-color: rgba(#000, 0.6);
+		min-height: 100%;
+		height: auto;
+		width: 100%;
+		z-index: 50;
+	}
+}
+
 // popup__header
 .popup__header {
 	display: flex;
@@ -802,6 +849,27 @@ body {
 	}
 
 }
+// check-form
+.check-form {
+	width: 100%;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 4px; 
+	display: none;
+	@include font-type($dark-gray-color, $main-font, 16px, auto, 0px);
+	&_succes {
+		background-color: $succes-color;
+		color: darken($succes-color, 20%);
+		border: 1px solid darken($succes-color, 15%);
+	}
+
+	&_fail {
+		background-color: $danger-color;
+		color: darken($danger-color, 15%);
+		border: 1px solid darken($danger-color, 15%);
+	}
+}
+
 // popup__form 
 .popup__form {
 	display: flex;
@@ -887,6 +955,37 @@ body {
 		@extend .contact-me__button_dark;
 	}
 }
+.tooltip {
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 5rem;
+	height: 1.75rem;
+	background-color: darken($danger-color, 15%);
+	position: relative;
+	border-radius: 3px;
+	text-align: center;
+	line-height: 1.75rem;
+	color: $white-color;
+	margin-bottom: 10px;
+	&__triangle {
+		border-left: 14px solid darken($danger-color, 15%);
+		border-top: 7px solid transparent;
+		border-bottom: 7px solid transparent;
+		position: absolute;
+		top: calc(50% - 7px);
+		right: -12px;
+	}
+
+	&_large {
+		width: 5.5rem;
+		height: 2rem;
+		line-height: 2rem;
+		&__triangle {
+			top: calc(50% - 9px);
+		}
+	}
+}
+
 								// CONTACT PAGE
 // contact-me__header
 .contact-me__header{

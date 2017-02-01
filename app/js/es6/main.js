@@ -61,7 +61,63 @@ function init() {
 
 	menuTrigger.addEventListener('click', toggleMenu);
 
-	
+	// show popup
+
+	const modal = document.querySelector('.js-modal');
+
+	function showModal(e) {
+		e.preventDefault();
+		show(modal);
+		document.body.classList.add('show-modal');
+		const modalClose = document.querySelectorAll('.js-modalClose');
+
+		function show(el) {
+			el.style.opacity = 1;
+			el.style.display = 'flex';
+		}
+
+		function hide(el) {
+			el.style.opacity = 0;
+			el.style.display = 'none';
+		}
+
+		function closeModal() {
+			hide(modal);
+			document.body.classList.remove('show-modal');
+		}
+
+		const modalCloses = [...modalClose]; /*ie fix*/
+		modalCloses.forEach((modalCloseItem) => modalCloseItem.addEventListener('click', closeModal));
+	}
+
+	document.querySelector('.js-addProject').addEventListener('click', showModal);
+
+	// form validation
+	const forms = document.querySelectorAll('.js-validation');
+
+	 function validateForm(e) {
+	 	e.preventDefault();
+
+
+	 	const tooltip = document.createElement('div');
+	 	const inputs = this.querySelectorAll('input');
+	 	
+	 	[...inputs].forEach((input) => {
+	 		if (input.value === '') {
+	 			const tooltipText = input.dataset.tooltip;
+	 			
+	 			
+			 	tooltip.classList.add('tooltip');
+			 	document.body.append(tooltip);
+			 	tooltip.style.display = 'block';
+
+			 	tooltip.textContent = tooltipText;
+	 			
+	 		}
+	 	});
+	 };
+
+	 [...forms].forEach((form) => form.addEventListener('submit', validateForm));
 	
 };
 

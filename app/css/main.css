@@ -28,6 +28,10 @@
   font-size: 2rem;
   width: 1em; }
 
+.icon-image {
+  font-size: 3.2rem;
+  width: 1em; }
+
 .icon-lock {
   font-size: 3.2rem;
   width: 1em; }
@@ -996,13 +1000,13 @@ body {
   margin: 0;
   text-align: center; }
 
-.portfolio-item__img {
+.portfolio-item__img, .add-project__cont {
   border: 2px solid #3ba8c0;
   -webkit-border-radius: 4px;
   border-radius: 4px;
   min-height: 130px; }
   @media only screen and (max-width: 980px) {
-    .portfolio-item__img {
+    .portfolio-item__img, .add-project__cont {
       min-height: auto; } }
 
 .portfolio-item__link {
@@ -1023,6 +1027,39 @@ body {
   line-height: 20px;
   letter-spacing: 0px; }
 
+.add-project {
+  cursor: pointer; }
+  .add-project__cont {
+    border-style: dotted;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center; }
+    .add-project__cont p {
+      margin: 0;
+      color: #3ba8c0;
+      font-family: "firasansbook", sans-serif;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: 0px; }
+    .add-project__cont svg {
+      fill: #3ba8c0;
+      font-size: 2.5rem;
+      margin-bottom: 10px; }
+
 .popup {
   display: -webkit-box;
   display: -webkit-flex;
@@ -1036,7 +1073,7 @@ body {
   display: none;
   opacity: 0;
   width: 350px;
-  height: 500px;
+  min-height: 500px;
   background-color: #eff3f7;
   position: fixed;
   top: -webkit-calc(50% - (500/2)px);
@@ -1046,8 +1083,26 @@ body {
   -webkit-border-radius: 7px;
   border-radius: 7px;
   overflow: hidden;
-  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2); }
+  -webkit-box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  z-index: 100; }
+
+.show-modal .site-container {
+  height: 100%; }
+
+.show-modal .site-cache {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  min-height: 100%;
+  height: auto;
+  width: 100%;
+  z-index: 50; }
 
 .popup__header {
   display: -webkit-box;
@@ -1083,6 +1138,27 @@ body {
     .popup__header .popup__close svg {
       fill: #fff;
       font-size: 1rem; }
+
+.check-form {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  display: none;
+  color: #4a545d;
+  font-family: "firasansbook", sans-serif;
+  font-size: 16px;
+  line-height: auto;
+  letter-spacing: 0px; }
+  .check-form_succes {
+    background-color: #c3e9d4;
+    color: #78ce9f;
+    border: 1px solid #8bd4ac; }
+  .check-form_fail {
+    background-color: #fdd5d2;
+    color: #fa9189;
+    border: 1px solid #fa9189; }
 
 .popup__form {
   display: -webkit-box;
@@ -1203,6 +1279,35 @@ body {
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between; }
+
+.tooltip {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 5rem;
+  height: 1.75rem;
+  background-color: #fa9189;
+  position: relative;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  text-align: center;
+  line-height: 1.75rem;
+  color: #fff;
+  margin-bottom: 10px; }
+  .tooltip__triangle {
+    border-left: 14px solid #fa9189;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    position: absolute;
+    top: -webkit-calc(50% - 7px);
+    top: calc(50% - 7px);
+    right: -12px; }
+  .tooltip_large {
+    width: 5.5rem;
+    height: 2rem;
+    line-height: 2rem; }
+    .tooltip_large__triangle {
+      top: -webkit-calc(50% - 9px);
+      top: calc(50% - 9px); }
 
 .contact-me__header {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(90%, #3ba8c0), color-stop(90%, #51daf8));

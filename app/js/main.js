@@ -61,6 +61,65 @@ function init() {
 	};
 
 	menuTrigger.addEventListener('click', toggleMenu);
+
+	// show popup
+
+	var modal = document.querySelector('.js-modal');
+
+	function showModal(e) {
+		e.preventDefault();
+		show(modal);
+		document.body.classList.add('show-modal');
+		var modalClose = document.querySelectorAll('.js-modalClose');
+
+		function show(el) {
+			el.style.opacity = 1;
+			el.style.display = 'flex';
+		}
+
+		function hide(el) {
+			el.style.opacity = 0;
+			el.style.display = 'none';
+		}
+
+		function closeModal() {
+			hide(modal);
+			document.body.classList.remove('show-modal');
+		}
+
+		var modalCloses = [].concat(_toConsumableArray(modalClose)); /*ie fix*/
+		modalCloses.forEach(function (modalCloseItem) {
+			return modalCloseItem.addEventListener('click', closeModal);
+		});
+	}
+
+	document.querySelector('.js-addProject').addEventListener('click', showModal);
+
+	// form validation
+	var forms = document.querySelectorAll('.js-validation');
+
+	function validateForm(e) {
+		e.preventDefault();
+
+		var tooltip = document.createElement('div');
+		var inputs = this.querySelectorAll('input');
+
+		[].concat(_toConsumableArray(inputs)).forEach(function (input) {
+			if (input.value === '') {
+				var tooltipText = input.dataset.tooltip;
+
+				tooltip.classList.add('tooltip');
+				document.body.append(tooltip);
+				tooltip.style.display = 'block';
+
+				tooltip.textContent = tooltipText;
+			}
+		});
+	};
+
+	[].concat(_toConsumableArray(forms)).forEach(function (form) {
+		return form.addEventListener('submit', validateForm);
+	});
 };
 
 window.onload = init();
