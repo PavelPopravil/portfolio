@@ -2,7 +2,7 @@
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-function init() {
+document.addEventListener('DOMContentLoaded', function () {
 
 	// slide effect
 	var slides = document.querySelectorAll('.slide');
@@ -63,63 +63,99 @@ function init() {
 	menuTrigger.addEventListener('click', toggleMenu);
 
 	// show popup
+	if (document.body.classList.contains('portfolio-page')) {
+		(function () {
+			var showModal = function showModal(e) {
+				e.preventDefault();
+				show(modal);
+				document.body.classList.add('show-modal');
+				var modalClose = document.querySelectorAll('.js-modalClose');
 
-	var modal = document.querySelector('.js-modal');
+				function show(el) {
+					el.style.opacity = 1;
+					el.style.display = 'flex';
+				}
 
-	function showModal(e) {
-		e.preventDefault();
-		show(modal);
-		document.body.classList.add('show-modal');
-		var modalClose = document.querySelectorAll('.js-modalClose');
+				function hide(el) {
+					el.style.opacity = 0;
+					el.style.display = 'none';
+				}
 
-		function show(el) {
-			el.style.opacity = 1;
-			el.style.display = 'flex';
-		}
+				function closeModal() {
+					hide(modal);
+					document.body.classList.remove('show-modal');
+				}
 
-		function hide(el) {
-			el.style.opacity = 0;
-			el.style.display = 'none';
-		}
+				var modalCloses = [].concat(_toConsumableArray(modalClose)); /*ie fix*/
+				modalCloses.forEach(function (modalCloseItem) {
+					return modalCloseItem.addEventListener('click', closeModal);
+				});
+			};
 
-		function closeModal() {
-			hide(modal);
-			document.body.classList.remove('show-modal');
-		}
+			var modal = document.querySelector('.js-modal');
 
-		var modalCloses = [].concat(_toConsumableArray(modalClose)); /*ie fix*/
-		modalCloses.forEach(function (modalCloseItem) {
-			return modalCloseItem.addEventListener('click', closeModal);
-		});
+			document.querySelector('.js-addProject').addEventListener('click', showModal);
+		})();
 	}
 
-	document.querySelector('.js-addProject').addEventListener('click', showModal);
+	// end of show popup
 
 	// form validation
-	var forms = document.querySelectorAll('.js-validation');
+	var form = document.querySelector('.js-validation');
 
 	function validateForm(e) {
+
 		e.preventDefault();
 
-		var tooltip = document.createElement('div');
-		var inputs = this.querySelectorAll('input');
-
-		[].concat(_toConsumableArray(inputs)).forEach(function (input) {
-			if (input.value === '') {
-				var tooltipText = input.dataset.tooltip;
-
-				tooltip.classList.add('tooltip');
-				document.body.append(tooltip);
-				tooltip.style.display = 'block';
-
-				tooltip.textContent = tooltipText;
-			}
-		});
+		checkInputs(form);
 	};
 
-	[].concat(_toConsumableArray(forms)).forEach(function (form) {
-		return form.addEventListener('submit', validateForm);
-	});
-};
+	form.addEventListener('submit', validateForm);
 
-window.onload = init();
+	function checkInputs(form) {
+		var inputs = form.querySelectorAll('input, textarea');
+		[].concat(_toConsumableArray(inputs)).forEach(function (input) {
+
+			if (input.value === '') {
+
+				var inputCoords = input.getBoundingClientRect();
+
+				var coords = {
+					top: inputCoords.top + window.scrollY,
+					left: inputCoords.left + window.scrollX,
+					width: inputCoords.width,
+					height: inputCoords.height,
+					text: input.dataset.tooltip
+				};
+
+				showTooltip(input, coords, form);
+			}
+		});
+	}
+	function showTooltip(input, coords, form) {
+
+		// tooltips initialization
+		var tooltip = document.createElement('span');
+		tooltip.classList.add('tooltip');
+		document.body.append(tooltip);
+
+		// tooltips proprieties
+		tooltip.style.top = coords.top + coords.height / 2 + 'px';
+		tooltip.style.left = coords.left - coords.width + 'px';
+		tooltip.textContent = coords.text;
+
+		var tooltipWidth = tooltip.offsetWidth;
+		var tooltipHeight = tooltip.offsetHeight;
+
+		tooltip.style.top = coords.top + coords.height / 2 - tooltipHeight / 2 + 'px';
+		tooltip.style.left = coords.left - coords.width / 1.3 + 'px';
+
+		function hideTooltips() {
+			tooltip.style.display = 'none';
+		}
+
+		input.addEventListener('keydown', hideTooltips);
+
+		form.addEventListener('reset', hideTooltips);
+	}
+});

@@ -40,7 +40,7 @@
 
     <title>Мои контакты</title>
 </head>
-<body>
+<body class="contacts-page">
     <!--[if lt IE 10]>
       <p class="browsehappy">Вы используете <strong>УСТАРЕВШИЙ Internet Explorer</strong> браузер. Пожалуйста, <a href="http://browsehappy.com/">обновите ваш Браузер</a> чтобы увидеть больше возможностей на сайтах!</p>
     <![endif]-->
@@ -177,14 +177,14 @@
         <div class="contact-me__body">
           
           <!-- form -->
-          <form class="contact-me__form">
+          <form class="contact-me__form js-validation">
             
             <label for="name-field">Имя
-              <input type="text" id="name-field" placeholder="Как к вам обращаться?" required>
+              <input type="text" id="name-field" placeholder="Как к вам обращаться?">
             </label>
 
             <label for="email-field">Email
-              <input type="email" id="email-field" placeholder="Куда мне писать" required>
+              <input type="email" id="email-field" placeholder="Куда мне писать">
             </label>
 
             <label for="massage-field">Сообщение
@@ -270,6 +270,7 @@
 
 	<script src='js/base.min.js'></script>
 	<script src='js/libs.min.js'></script>
+  <script src='js/validation.js'></script>
 	<script src='js/main.min.js'></script>
 
 

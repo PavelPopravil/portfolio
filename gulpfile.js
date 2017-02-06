@@ -47,7 +47,7 @@ gulp.task('minify', ['sass'], function() {
 });
 
 // Scripts base
-var concat = require('gulp-concat');
+
  
 gulp.task('scripts:base', function() {
   return gulp.src([])
@@ -60,13 +60,14 @@ gulp.task('scripts:libs', function() {
   return gulp.src([
     'bower_components/svg4everybody/dist/svg4everybody.min.js'
     ])
+    .pipe(uglify('libs.min.js'))
     .pipe(concat('libs.min.js'))
     .pipe(gulp.dest('app/js'));
 });
 
 // babel
 gulp.task('babel', function() {
-  return gulp.src('app/js/es6/main.js')
+  return gulp.src('app/js/es6/*.js')
     .pipe(babel({
        presets: ['es2015']
     }))

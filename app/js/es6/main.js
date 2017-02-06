@@ -1,4 +1,4 @@
-function init() {
+document.addEventListener('DOMContentLoaded', function() {
 	
 	// slide effect
 	const slides = document.querySelectorAll('.slide');
@@ -62,10 +62,11 @@ function init() {
 	menuTrigger.addEventListener('click', toggleMenu);
 
 	// show popup
+	if (document.body.classList.contains('portfolio-page')) {
 
-	const modal = document.querySelector('.js-modal');
+		const modal = document.querySelector('.js-modal');
 
-	function showModal(e) {
+		function showModal(e) {
 		e.preventDefault();
 		show(modal);
 		document.body.classList.add('show-modal');
@@ -88,37 +89,77 @@ function init() {
 
 		const modalCloses = [...modalClose]; /*ie fix*/
 		modalCloses.forEach((modalCloseItem) => modalCloseItem.addEventListener('click', closeModal));
-	}
+		}
 
-	document.querySelector('.js-addProject').addEventListener('click', showModal);
+		document.querySelector('.js-addProject').addEventListener('click', showModal);
+	}
+	
+
+	// end of show popup
 
 	// form validation
-	const forms = document.querySelectorAll('.js-validation');
+	const form = document.querySelector('.js-validation');
 
-	 function validateForm(e) {
-	 	e.preventDefault();
+	function validateForm(e) {
+
+		e.preventDefault();
+		
+		checkInputs(form);
+
+	};
+
+	form.addEventListener('submit', validateForm);
+
+	function checkInputs(form) {
+		const inputs = form.querySelectorAll('input, textarea');
+		[...inputs].forEach((input) => {
+
+			if (input.value === '') {
+
+				const inputCoords = input.getBoundingClientRect();
+				
+				const coords = {
+					top: inputCoords.top + window.scrollY,
+					left: inputCoords.left + window.scrollX,
+					width: inputCoords.width,
+					height: inputCoords.height,
+					text: input.dataset.tooltip
+				}
+				
+				showTooltip(input, coords, form);
+			}
+
+		});
+
+	}
+	function showTooltip(input, coords, form) {
+
+		// tooltips initialization
+		const tooltip = document.createElement('span');
+		tooltip.classList.add('tooltip');
+		document.body.append(tooltip);
+		
+		// tooltips proprieties
+		tooltip.style.top = (coords.top + coords.height / 2) + 'px';
+		tooltip.style.left = (coords.left - coords.width) + 'px';
+		tooltip.textContent = coords.text;
+
+		const tooltipWidth = tooltip.offsetWidth;
+		const tooltipHeight = tooltip.offsetHeight;
 
 
-	 	const tooltip = document.createElement('div');
-	 	const inputs = this.querySelectorAll('input');
-	 	
-	 	[...inputs].forEach((input) => {
-	 		if (input.value === '') {
-	 			const tooltipText = input.dataset.tooltip;
-	 			
-	 			
-			 	tooltip.classList.add('tooltip');
-			 	document.body.append(tooltip);
-			 	tooltip.style.display = 'block';
+		tooltip.style.top = (coords.top + coords.height / 2 - tooltipHeight / 2) + 'px';
+		tooltip.style.left = (coords.left - coords.width / 1.3) + 'px';
 
-			 	tooltip.textContent = tooltipText;
-	 			
-	 		}
-	 	});
-	 };
+		
+		function hideTooltips() {
+			tooltip.style.display = 'none';
+		}
 
-	 [...forms].forEach((form) => form.addEventListener('submit', validateForm));
-	
-};
+		input.addEventListener('keydown', hideTooltips)
 
-window.onload = init();
+		form.addEventListener('reset', hideTooltips);
+
+	}
+});
+

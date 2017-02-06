@@ -797,7 +797,7 @@ body {
 	width: 350px;
 	min-height: 500px;
 	background-color: $gray-color;
-	position: fixed;
+	position: absolute;
 	top: calc(50% - (500/2)px);
 	left: calc(50% - (350/2)px);
 	border-radius: 7px;
@@ -811,7 +811,7 @@ body {
 
 	.site-container {
 		height: 100%;
-		// overflow: hidden;
+		overflow: hidden;
 	}
 
 	.site-cache {
@@ -956,18 +956,20 @@ body {
 	}
 }
 .tooltip {
+	display: block;
 	padding-left: 10px;
 	padding-right: 10px;
-	width: 5rem;
+	min-width: 5rem;
 	height: 1.75rem;
 	background-color: darken($danger-color, 15%);
-	position: relative;
+	position: absolute;
 	border-radius: 3px;
-	text-align: center;
+	text-align: right;
 	line-height: 1.75rem;
 	color: $white-color;
-	margin-bottom: 10px;
-	&__triangle {
+	z-index: 100;
+	&:after {
+		content: '';
 		border-left: 14px solid darken($danger-color, 15%);
 		border-top: 7px solid transparent;
 		border-bottom: 7px solid transparent;
@@ -980,7 +982,7 @@ body {
 		width: 5.5rem;
 		height: 2rem;
 		line-height: 2rem;
-		&__triangle {
+		&:after {
 			top: calc(50% - 9px);
 		}
 	}
