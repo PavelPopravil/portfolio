@@ -3,7 +3,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync'),
     concat = require('gulp-concat'),
-    uglify = require('gulp-uglifyjs'),
+    uglify = require('gulp-uglify'),
     cssnano = require('gulp-cssnano'),
     rename = require('gulp-rename'),
     del = require('del'),
@@ -31,7 +31,7 @@ gulp.task('sass', function () {
   return gulp.src('app/sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
-            browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7'],
+            browsers: ['last 15 versions', '> 1%'],
             cascade: false
         }))
     .pipe(gulp.dest('app/css'))
@@ -50,7 +50,9 @@ gulp.task('minify', ['sass'], function() {
 
  
 gulp.task('scripts:base', function() {
-  return gulp.src([])
+  return gulp.src([
+    'bower_components/jquery/jquery.min.js'
+    ])
     .pipe(concat('base.min.js'))
     .pipe(gulp.dest('app/js'));
 });
@@ -77,8 +79,9 @@ gulp.task('babel', function() {
 
 // Scripts min
 gulp.task('scripts', ['babel', 'scripts:base', 'scripts:libs'], function() {
-  gulp.src('app/js/main.js')
-    .pipe(uglify('main.min.js'))
+    gulp.src(['app/js/*.js', '!app/js/*.min.js'])
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('app/js'))
 });
 

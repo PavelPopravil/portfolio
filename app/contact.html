@@ -179,16 +179,22 @@
           <!-- form -->
           <form class="contact-me__form js-validation">
             
+            <!-- Hidden Required Fields -->
+            <input type="hidden" name="project_name" value="Site Name">
+            <input type="hidden" name="admin_email" value="pavelfrontend@gmail.com">
+            <input type="hidden" name="form_subject" value="Form Subject">
+            <!-- END Hidden Required Fields -->
+
             <label for="name-field">Имя
-              <input type="text" id="name-field" placeholder="Как к вам обращаться?">
+              <input type="text" name="Name" id="name-field" placeholder="Как к вам обращаться?" required>
             </label>
 
             <label for="email-field">Email
-              <input type="email" id="email-field" placeholder="Куда мне писать">
+              <input type="email" name="E-mail" id="email-field" placeholder="Куда мне писать" required>
             </label>
 
             <label for="massage-field">Сообщение
-              <textarea name="" id="massage-field" placeholder="Кратко в чём суть"></textarea>
+              <textarea name="Massage" id="massage-field" placeholder="Кратко в чём суть"></textarea>
             </label>
             
             <div class="button-cont">
@@ -252,14 +258,14 @@
         <div class="footer-wrap">
           
           <!-- lock -->
-          <a href="" class="lock">
+         <!--  <a href="" class="lock">
             <svg class="lock__icon icon icon-lock" title="lock">
               <use xlink:href="img/sprite.svg#lock"></use>
             </svg>
-          </a>
+          </a> -->
 
           <!-- copyright -->
-          <p class="copyright">&copy; 2015. Это мой сайт, пожалуйста, не копируйте и не воруйте его</p>
+          <p class="copyright">&copy; 2017. Это мой сайт, пожалуйста, не копируйте и не воруйте его</p>
         </div>
 
       </footer>
@@ -270,7 +276,7 @@
 
 	<script src='js/base.min.js'></script>
 	<script src='js/libs.min.js'></script>
-  <script src='js/validation.js'></script>
+  <script src='js/validation.min.js'></script>
 	<script src='js/main.min.js'></script>
 
 

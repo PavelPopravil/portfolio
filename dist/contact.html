@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- FAVICON -->
-    <link rel="shortcut icon" href="#" type="image/x-icon">
-    <link rel="apple-touch-icon" href="#">
-    <link rel="apple-touch-icon" sizes="72x72" href="#">
-    <link rel="apple-touch-icon" sizes="114x114" href="#">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="img/favicons/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="img/favicons/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="img/favicons/manifest.json">
+    <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
 
     <!-- SEO -->
     <meta name="Description" content="">
@@ -38,7 +40,7 @@
 
     <title>Мои контакты</title>
 </head>
-<body>
+<body class="contacts-page">
     <!--[if lt IE 10]>
       <p class="browsehappy">Вы используете <strong>УСТАРЕВШИЙ Internet Explorer</strong> браузер. Пожалуйста, <a href="http://browsehappy.com/">обновите ваш Браузер</a> чтобы увидеть больше возможностей на сайтах!</p>
     <![endif]-->
@@ -62,7 +64,7 @@
           <ul class="header__socials socials">
 
             <li class="socials__item">
-              <a href="#" class="socials__link">
+              <a href="https://vk.com/id22749545" target="_blank" class="socials__link">
                 <svg class="socials__icon icon icon-vk-with-circle" title="vkontakte">
                   <use xlink:href="img/sprite.svg#vk-with-circle"></use>
                 </svg>
@@ -70,7 +72,7 @@
             </li>
 
             <li class="socials__item">
-              <a href="#" class="socials__link">
+              <a href="https://www.twitter.com/" target="_blank" class="socials__link">
                 <svg class="socials__icon icon icon-twitter-with-circle" title="twitter">
                   <use xlink:href="img/sprite.svg#twitter-with-circle"></use>
                 </svg>
@@ -78,7 +80,7 @@
             </li>
 
             <li class="socials__item">
-              <a href="#" class="socials__link">
+              <a href="https://www.facebook.com/" target="_blank" class="socials__link">
                 <svg class="socials__icon icon icon-facebook-with-circle" title="facebook">
                   <use xlink:href="img/sprite.svg#facebook-with-circle"></use>
                 </svg>
@@ -86,7 +88,7 @@
             </li>
 
             <li class="socials__item">
-              <a href="#" class="socials__link">
+              <a href="https://github.com/PavelPopravil" target="_blank" class="socials__link">
                 <svg class="socials__icon icon icon-github-with-circle" title="github">
                   <use xlink:href="img/sprite.svg#github-with-circle"></use>
                 </svg>
@@ -115,7 +117,7 @@
       <div class="container">
         
         <!-- sidebar -->
-        <aisde class="sidebar">
+        <aisde class="sidebar slide to-right">
           
           <!-- navigation -->
           <nav class="sidebar__nav nav">
@@ -166,7 +168,7 @@
         </aisde>
       
       <!-- contact-me SECTION -->
-      <section class="contact-me">
+      <section class="contact-me slide to-left">
         
         <header class="contact-me__header">
           <h2 class="contact-me__title">У вас интересный проект? Напишите мне!</h2>
@@ -175,18 +177,24 @@
         <div class="contact-me__body">
           
           <!-- form -->
-          <form class="contact-me__form">
+          <form class="contact-me__form js-validation">
             
+            <!-- Hidden Required Fields -->
+            <input type="hidden" name="project_name" value="Site Name">
+            <input type="hidden" name="admin_email" value="pavelfrontend@gmail.com">
+            <input type="hidden" name="form_subject" value="Form Subject">
+            <!-- END Hidden Required Fields -->
+
             <label for="name-field">Имя
-              <input type="text" id="name-field" placeholder="Как к вам обращаться?" required>
+              <input type="text" name="Name" id="name-field" placeholder="Как к вам обращаться?" required>
             </label>
 
             <label for="email-field">Email
-              <input type="email" id="email-field" placeholder="Куда мне писать" required>
+              <input type="email" name="E-mail" id="email-field" placeholder="Куда мне писать" required>
             </label>
 
             <label for="massage-field">Сообщение
-              <textarea name="" id="massage-field" placeholder="Кратко в чём суть"></textarea>
+              <textarea name="Massage" id="massage-field" placeholder="Кратко в чём суть"></textarea>
             </label>
             
             <div class="button-cont">
@@ -207,41 +215,42 @@
       
       <section class="socials-section">
 
-        <ul class="socials">
+          <ul class="socials">
 
-          <li class="socials__item">
-            <a href="#" class="socials__link">
-              <svg class="socials__icon icon icon-vk-with-circle" title="vkontakte">
-                <use xlink:href="img/sprite.svg#vk-with-circle"></use>
-              </svg>
-            </a>
-          </li>
+            <li class="socials__item">
+              <a href="https://vk.com/id22749545" target="_blank" class="socials__link">
+                <svg class="socials__icon icon icon-vk-with-circle" title="vkontakte">
+                  <use xlink:href="img/sprite.svg#vk-with-circle"></use>
+                </svg>
+              </a>
+            </li>
 
-          <li class="socials__item">
-            <a href="#" class="socials__link">
-              <svg class="socials__icon icon icon-twitter-with-circle" title="twitter">
-                <use xlink:href="img/sprite.svg#twitter-with-circle"></use>
-              </svg>
-            </a>
-          </li>
+            <li class="socials__item">
+              <a href="https://www.twitter.com/" target="_blank" class="socials__link">
+                <svg class="socials__icon icon icon-twitter-with-circle" title="twitter">
+                  <use xlink:href="img/sprite.svg#twitter-with-circle"></use>
+                </svg>
+              </a>
+            </li>
 
-          <li class="socials__item">
-            <a href="#" class="socials__link">
-              <svg class="socials__icon icon icon-facebook-with-circle" title="facebook">
-                <use xlink:href="img/sprite.svg#facebook-with-circle"></use>
-              </svg>
-            </a>
-          </li>
+            <li class="socials__item">
+              <a href="https://www.facebook.com/" target="_blank" class="socials__link">
+                <svg class="socials__icon icon icon-facebook-with-circle" title="facebook">
+                  <use xlink:href="img/sprite.svg#facebook-with-circle"></use>
+                </svg>
+              </a>
+            </li>
 
-          <li class="socials__item">
-            <a href="#" class="socials__link">
-              <svg class="socials__icon icon icon-github-with-circle" title="github">
-                <use xlink:href="img/sprite.svg#github-with-circle"></use>
-              </svg>
-            </a>
-          </li>
+            <li class="socials__item">
+              <a href="https://github.com/PavelPopravil" target="_blank" class="socials__link">
+                <svg class="socials__icon icon icon-github-with-circle" title="github">
+                  <use xlink:href="img/sprite.svg#github-with-circle"></use>
+                </svg>
+              </a>
+            </li>
 
-        </ul>
+          </ul>
+          
       </section>
 
       <footer class="main-footer">
@@ -249,14 +258,14 @@
         <div class="footer-wrap">
           
           <!-- lock -->
-          <a href="" class="lock">
+         <!--  <a href="" class="lock">
             <svg class="lock__icon icon icon-lock" title="lock">
               <use xlink:href="img/sprite.svg#lock"></use>
             </svg>
-          </a>
+          </a> -->
 
           <!-- copyright -->
-          <p class="copyright">&copy; 2015. Это мой сайт, пожалуйста, не копируйте и не воруйте его</p>
+          <p class="copyright">&copy; 2017. Это мой сайт, пожалуйста, не копируйте и не воруйте его</p>
         </div>
 
       </footer>
@@ -267,6 +276,7 @@
 
 	<script src='js/base.min.js'></script>
 	<script src='js/libs.min.js'></script>
+  <script src='js/validation.min.js'></script>
 	<script src='js/main.min.js'></script>
 
 

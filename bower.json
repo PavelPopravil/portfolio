@@ -17,6 +17,6 @@
   "dependencies": {
     "normalize-css": "normalize.css#^5.0.0",
     "svg4everybody": "^2.1.4",
-    "opentip": "latest"
+    "jquery": "latest"
   }
 }

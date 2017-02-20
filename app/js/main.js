@@ -63,99 +63,138 @@ document.addEventListener('DOMContentLoaded', function () {
 	menuTrigger.addEventListener('click', toggleMenu);
 
 	// show popup
-	if (document.body.classList.contains('portfolio-page')) {
-		(function () {
-			var showModal = function showModal(e) {
-				e.preventDefault();
-				show(modal);
-				document.body.classList.add('show-modal');
-				var modalClose = document.querySelectorAll('.js-modalClose');
+	// if (document.body.classList.contains('portfolio-page')) {
 
-				function show(el) {
-					el.style.opacity = 1;
-					el.style.display = 'flex';
-				}
+	// 	const modal = document.querySelector('.js-modal');
 
-				function hide(el) {
-					el.style.opacity = 0;
-					el.style.display = 'none';
-				}
+	// 	function showModal(e) {
+	// 		e.preventDefault();
+	// 		show(modal);
+	// 		document.body.classList.add('show-modal');
+	// 		const modalClose = document.querySelectorAll('.js-modalClose');
 
-				function closeModal() {
-					hide(modal);
-					document.body.classList.remove('show-modal');
-				}
+	// 		function show(el) {
+	// 			el.style.opacity = 1;
+	// 			el.style.display = 'flex';
+	// 		}
 
-				var modalCloses = [].concat(_toConsumableArray(modalClose)); /*ie fix*/
-				modalCloses.forEach(function (modalCloseItem) {
-					return modalCloseItem.addEventListener('click', closeModal);
-				});
-			};
+	// 		function hide(el) {
+	// 			el.style.opacity = 0;
+	// 			el.style.display = 'none';
+	// 		}
 
-			var modal = document.querySelector('.js-modal');
+	// 		function closeModal() {
+	// 			hide(modal);
+	// 			document.body.classList.remove('show-modal');
+	// 		}
 
-			document.querySelector('.js-addProject').addEventListener('click', showModal);
-		})();
-	}
+	// 		const modalCloses = [...modalClose]; /*ie fix*/
+	// 		modalCloses.forEach((modalCloseItem) => modalCloseItem.addEventListener('click', closeModal));
+	// 	}
+
+	// 	document.querySelector('.js-addProject').addEventListener('click', showModal);
+	// }
+
 
 	// end of show popup
 
 	// form validation
-	var form = document.querySelector('.js-validation');
+	// const form = document.querySelector('.js-validation');
 
-	function validateForm(e) {
+	// function validateForm(e) {
 
-		e.preventDefault();
+	// 	e.preventDefault();
 
-		checkInputs(form);
-	};
+	// 	checkInputs(form);
 
-	form.addEventListener('submit', validateForm);
+	// };
 
-	function checkInputs(form) {
-		var inputs = form.querySelectorAll('input, textarea');
-		[].concat(_toConsumableArray(inputs)).forEach(function (input) {
+	// form.addEventListener('submit', validateForm);
 
-			if (input.value === '') {
+	// function checkInputs(form) {
+	// 	const inputs = form.querySelectorAll('input, textarea');
+	// 	[...inputs].forEach((input) => {
 
-				var inputCoords = input.getBoundingClientRect();
+	// 		if (input.value === '') {
 
-				var coords = {
-					top: inputCoords.top + window.scrollY,
-					left: inputCoords.left + window.scrollX,
-					width: inputCoords.width,
-					height: inputCoords.height,
-					text: input.dataset.tooltip
-				};
+	// 			const inputCoords = input.getBoundingClientRect();
 
-				showTooltip(input, coords, form);
-			}
-		});
-	}
-	function showTooltip(input, coords, form) {
+	// 			const coords = {
+	// 				top: inputCoords.top + window.scrollY,
+	// 				left: inputCoords.left + window.scrollX,
+	// 				width: inputCoords.width,
+	// 				height: inputCoords.height,
+	// 				text: input.dataset.tooltip
+	// 			}
 
-		// tooltips initialization
-		var tooltip = document.createElement('span');
-		tooltip.classList.add('tooltip');
-		document.body.append(tooltip);
+	// 			showTooltip(input, coords, form);
+	// 		}
 
-		// tooltips proprieties
-		tooltip.style.top = coords.top + coords.height / 2 + 'px';
-		tooltip.style.left = coords.left - coords.width + 'px';
-		tooltip.textContent = coords.text;
+	// 	});
 
-		var tooltipWidth = tooltip.offsetWidth;
-		var tooltipHeight = tooltip.offsetHeight;
+	// }
+	// function showTooltip(input, coords, form) {
+	// 	console.log(arguments);
+	// 	// tooltips initialization
+	// 	const tooltip = document.createElement('span');
+	// 	tooltip.classList.add('tooltip');
+	// 	document.body.appendChild(tooltip);
 
-		tooltip.style.top = coords.top + coords.height / 2 - tooltipHeight / 2 + 'px';
-		tooltip.style.left = coords.left - coords.width / 1.3 + 'px';
+	// 	// tooltips proprieties
+	// 	tooltip.style.top = (coords.top + coords.height / 2) + 'px';
+	// 	tooltip.style.left = (coords.left - coords.width) + 'px';
+	// 	tooltip.textContent = coords.text;
 
-		function hideTooltips() {
-			tooltip.style.display = 'none';
-		}
+	// 	const tooltipWidth = tooltip.offsetWidth;
+	// 	const tooltipHeight = tooltip.offsetHeight;
 
-		input.addEventListener('keydown', hideTooltips);
+	// 	// console.log(tooltip);
+	// 	const tooltips = [];
+	// 	// tooltips.forEach(to)
 
-		form.addEventListener('reset', hideTooltips);
-	}
+	// 	tooltip.style.top = (coords.top + coords.height / 2 - tooltipHeight / 2) + 'px';
+	// 	tooltip.style.left = (coords.left - coords.width / 1.3) + 'px';
+
+
+	// 	function hideTooltips() {
+	// 		tooltip.style.display = 'none';
+	// 	}
+
+	// 	input.addEventListener('keydown', hideTooltips);
+	// 	input.addEventListener('change', hideTooltips);
+
+
+	// 	form.addEventListener('reset', hideTooltips);
+
+	// }
+
+	// // input type file change
+	// const inputFile = form.querySelector('input[type="file"]');
+
+	// function showFile() {
+
+	// 	const inputFileText = document.querySelector('.file-upload');
+	// 	// const laodFileButton = inputFileText.querySelector('button');
+
+
+	// 		inputFileText.innerHTML = 
+	// 		`${this.value} 
+	// 		<input type="file" data-tooltip="Загрузите изображение" id="add-project">
+	//             <button>
+	//           <svg class="app__icon icon icon-cloud-download">
+	//             <use xlink:href="img/sprite.svg#cloud-download"></use>
+	//           </svg>
+	//         </button>
+	//         `;
+	//         console.log(this.value);
+	//         // laodFileButton.addEventListener('click', function() {
+	//         // 	inputFile.value = ' ';
+	//         // });
+
+
+	// }
+	// inputFile.addEventListener('change', showFile);
+
+
+	// // end of input type file change
 });

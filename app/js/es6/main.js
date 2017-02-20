@@ -62,104 +62,139 @@ document.addEventListener('DOMContentLoaded', function() {
 	menuTrigger.addEventListener('click', toggleMenu);
 
 	// show popup
-	if (document.body.classList.contains('portfolio-page')) {
+	// if (document.body.classList.contains('portfolio-page')) {
 
-		const modal = document.querySelector('.js-modal');
+	// 	const modal = document.querySelector('.js-modal');
 
-		function showModal(e) {
-		e.preventDefault();
-		show(modal);
-		document.body.classList.add('show-modal');
-		const modalClose = document.querySelectorAll('.js-modalClose');
+	// 	function showModal(e) {
+	// 		e.preventDefault();
+	// 		show(modal);
+	// 		document.body.classList.add('show-modal');
+	// 		const modalClose = document.querySelectorAll('.js-modalClose');
 
-		function show(el) {
-			el.style.opacity = 1;
-			el.style.display = 'flex';
-		}
+	// 		function show(el) {
+	// 			el.style.opacity = 1;
+	// 			el.style.display = 'flex';
+	// 		}
 
-		function hide(el) {
-			el.style.opacity = 0;
-			el.style.display = 'none';
-		}
+	// 		function hide(el) {
+	// 			el.style.opacity = 0;
+	// 			el.style.display = 'none';
+	// 		}
 
-		function closeModal() {
-			hide(modal);
-			document.body.classList.remove('show-modal');
-		}
+	// 		function closeModal() {
+	// 			hide(modal);
+	// 			document.body.classList.remove('show-modal');
+	// 		}
 
-		const modalCloses = [...modalClose]; /*ie fix*/
-		modalCloses.forEach((modalCloseItem) => modalCloseItem.addEventListener('click', closeModal));
-		}
+	// 		const modalCloses = [...modalClose]; /*ie fix*/
+	// 		modalCloses.forEach((modalCloseItem) => modalCloseItem.addEventListener('click', closeModal));
+	// 	}
 
-		document.querySelector('.js-addProject').addEventListener('click', showModal);
-	}
+	// 	document.querySelector('.js-addProject').addEventListener('click', showModal);
+	// }
 	
 
 	// end of show popup
 
 	// form validation
-	const form = document.querySelector('.js-validation');
+	// const form = document.querySelector('.js-validation');
 
-	function validateForm(e) {
+	// function validateForm(e) {
 
-		e.preventDefault();
+	// 	e.preventDefault();
 		
-		checkInputs(form);
+	// 	checkInputs(form);
 
-	};
+	// };
 
-	form.addEventListener('submit', validateForm);
+	// form.addEventListener('submit', validateForm);
 
-	function checkInputs(form) {
-		const inputs = form.querySelectorAll('input, textarea');
-		[...inputs].forEach((input) => {
+	// function checkInputs(form) {
+	// 	const inputs = form.querySelectorAll('input, textarea');
+	// 	[...inputs].forEach((input) => {
 
-			if (input.value === '') {
+	// 		if (input.value === '') {
 
-				const inputCoords = input.getBoundingClientRect();
+	// 			const inputCoords = input.getBoundingClientRect();
 				
-				const coords = {
-					top: inputCoords.top + window.scrollY,
-					left: inputCoords.left + window.scrollX,
-					width: inputCoords.width,
-					height: inputCoords.height,
-					text: input.dataset.tooltip
-				}
+	// 			const coords = {
+	// 				top: inputCoords.top + window.scrollY,
+	// 				left: inputCoords.left + window.scrollX,
+	// 				width: inputCoords.width,
+	// 				height: inputCoords.height,
+	// 				text: input.dataset.tooltip
+	// 			}
 				
-				showTooltip(input, coords, form);
-			}
+	// 			showTooltip(input, coords, form);
+	// 		}
 
-		});
+	// 	});
 
-	}
-	function showTooltip(input, coords, form) {
-
-		// tooltips initialization
-		const tooltip = document.createElement('span');
-		tooltip.classList.add('tooltip');
-		document.body.append(tooltip);
+	// }
+	// function showTooltip(input, coords, form) {
+	// 	console.log(arguments);
+	// 	// tooltips initialization
+	// 	const tooltip = document.createElement('span');
+	// 	tooltip.classList.add('tooltip');
+	// 	document.body.appendChild(tooltip);
 		
-		// tooltips proprieties
-		tooltip.style.top = (coords.top + coords.height / 2) + 'px';
-		tooltip.style.left = (coords.left - coords.width) + 'px';
-		tooltip.textContent = coords.text;
+	// 	// tooltips proprieties
+	// 	tooltip.style.top = (coords.top + coords.height / 2) + 'px';
+	// 	tooltip.style.left = (coords.left - coords.width) + 'px';
+	// 	tooltip.textContent = coords.text;
 
-		const tooltipWidth = tooltip.offsetWidth;
-		const tooltipHeight = tooltip.offsetHeight;
+	// 	const tooltipWidth = tooltip.offsetWidth;
+	// 	const tooltipHeight = tooltip.offsetHeight;
 
+	// 	// console.log(tooltip);
+	// 	const tooltips = [];
+	// 	// tooltips.forEach(to)
 
-		tooltip.style.top = (coords.top + coords.height / 2 - tooltipHeight / 2) + 'px';
-		tooltip.style.left = (coords.left - coords.width / 1.3) + 'px';
+	// 	tooltip.style.top = (coords.top + coords.height / 2 - tooltipHeight / 2) + 'px';
+	// 	tooltip.style.left = (coords.left - coords.width / 1.3) + 'px';
 
 		
-		function hideTooltips() {
-			tooltip.style.display = 'none';
-		}
+	// 	function hideTooltips() {
+	// 		tooltip.style.display = 'none';
+	// 	}
 
-		input.addEventListener('keydown', hideTooltips)
+	// 	input.addEventListener('keydown', hideTooltips);
+	// 	input.addEventListener('change', hideTooltips);
 
-		form.addEventListener('reset', hideTooltips);
 
-	}
+	// 	form.addEventListener('reset', hideTooltips);
+
+	// }
+
+	// // input type file change
+	// const inputFile = form.querySelector('input[type="file"]');
+
+	// function showFile() {
+
+	// 	const inputFileText = document.querySelector('.file-upload');
+	// 	// const laodFileButton = inputFileText.querySelector('button');
+
+		
+	// 		inputFileText.innerHTML = 
+	// 		`${this.value} 
+	// 		<input type="file" data-tooltip="Загрузите изображение" id="add-project">
+	//             <button>
+	//           <svg class="app__icon icon icon-cloud-download">
+	//             <use xlink:href="img/sprite.svg#cloud-download"></use>
+	//           </svg>
+	//         </button>
+	//         `;
+	//         console.log(this.value);
+	//         // laodFileButton.addEventListener('click', function() {
+	//         // 	inputFile.value = ' ';
+	//         // });
+		
+		
+	// }
+	// inputFile.addEventListener('change', showFile);
+
+	
+	// // end of input type file change
 });
 
