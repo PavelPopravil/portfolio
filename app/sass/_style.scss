@@ -10,6 +10,7 @@ body {
 // sections
 .app {
 	min-width: 320px;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	height: auto;
@@ -40,6 +41,7 @@ body {
 	min-width: 960px;
 	width: 75%;
 	margin: 0 auto;
+	overflow: hidden;
 	@extend .clearfix;
 	@include respond-to(tablet) {
 		min-width: auto;
@@ -586,7 +588,52 @@ body {
 	@include font-type($dark-gray-color, $light-font, 15px, 23px, 0px);
 	display: block;
 }
+.tooltip {
+	position: relative;
+	cursor: pointer;
+	&:hover {
+		.tooltip__text {
+			display: inline-block;
+			opacity: 1;
+		}
+	}
+}
+.tooltip__text {
+	transition: opacity .5s ease;
+	opacity: 0;
+	display: none;
+	position: absolute;
+	top: -26px;
+	margin-left: 10px;
+	min-width: 100px;
+	min-height: 25px;
+	@extend .skill-box__item;
+	font-weight: bold;
+	line-height: 1.6;
+	
+	@include respond-to(mobile) {
+		top: 30px;
+		right: 10%;
+	}
+	
+	@media only screen and (max-width: 430px) {
+		top: 53px;
+	}
 
+	&:after {
+		content: '';
+		display: block;
+		background: linear-gradient(135deg, $accent-color 40%, darken($accent-color, 20%) 70%, $accent-color);
+		position: absolute; top: calc(50% - 4px); left: -4px;
+		width: 8px; height: 8px;
+		transform: rotate(45deg);
+
+		@include respond-to(mobile) {
+			left: calc(50% - 2px);
+			top: -3px;
+		}
+	}
+}
 // education-header
 .education-header {}
 .education__title {
@@ -744,9 +791,9 @@ body {
 	border-radius: 4px;
 	min-height: 130px;
 	
-	@include respond-to(tablet) {
-		min-height: auto;
-	}
+	// @include respond-to(tablet) {
+	// 	min-height: auto;
+	// }
 }
 
 // portfolio-text
@@ -959,38 +1006,38 @@ body {
 		@extend .contact-me__button_dark;
 	}
 }
-.tooltip {
-	display: block;
-	padding-left: 10px;
-	padding-right: 10px;
-	min-width: 220px;
-	height: 1.75rem;
-	background-color: darken($danger-color, 15%);
-	position: absolute;
-	border-radius: 3px;
-	text-align: center;
-	line-height: 1.75rem;
-	color: $white-color;
-	z-index: 100;
-	&:after {
-		content: '';
-		border-left: 14px solid darken($danger-color, 15%);
-		border-top: 7px solid transparent;
-		border-bottom: 7px solid transparent;
-		position: absolute;
-		top: calc(50% - 7px);
-		right: -12px;
-	}
+// .tooltip {
+// 	display: block;
+// 	padding-left: 10px;
+// 	padding-right: 10px;
+// 	min-width: 220px;
+// 	height: 1.75rem;
+// 	background-color: darken($danger-color, 15%);
+// 	position: absolute;
+// 	border-radius: 3px;
+// 	text-align: center;
+// 	line-height: 1.75rem;
+// 	color: $white-color;
+// 	z-index: 100;
+// 	&:after {
+// 		content: '';
+// 		border-left: 14px solid darken($danger-color, 15%);
+// 		border-top: 7px solid transparent;
+// 		border-bottom: 7px solid transparent;
+// 		position: absolute;
+// 		top: calc(50% - 7px);
+// 		right: -12px;
+// 	}
 
-	&_large {
-		width: 5.5rem;
-		height: 2rem;
-		line-height: 2rem;
-		&:after {
-			top: calc(50% - 9px);
-		}
-	}
-}
+// 	&_large {
+// 		width: 5.5rem;
+// 		height: 2rem;
+// 		line-height: 2rem;
+// 		&:after {
+// 			top: calc(50% - 9px);
+// 		}
+// 	}
+// }
 
 								// CONTACT PAGE
 // contact-me__header

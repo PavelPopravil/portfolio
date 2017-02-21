@@ -4,9 +4,9 @@
   height: 1em;
   fill: currentColor; }
 
-.icon-bag {
-  font-size: 4.25rem;
-  width: 1.05882em; }
+.icon-briefcase {
+  font-size: 2.4rem;
+  width: 1em; }
 
 .icon-cancel-circle {
   font-size: 3.2rem;
@@ -239,6 +239,7 @@ body {
 
 .app {
   min-width: 320px;
+  width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -278,7 +279,8 @@ body {
   flex: 1 0 auto;
   min-width: 960px;
   width: 75%;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow: hidden; }
   @media only screen and (max-width: 980px) {
     .container {
       min-width: auto;
@@ -795,7 +797,7 @@ body {
   -ms-flex-wrap: wrap;
   flex-wrap: wrap; }
 
-.skill-box__item {
+.skill-box__item, .tooltip__text {
   margin-left: 5px;
   margin-bottom: 5px;
   padding: 4px 10px;
@@ -861,6 +863,52 @@ body {
   line-height: 23px;
   letter-spacing: 0px;
   display: block; }
+
+.tooltip {
+  position: relative;
+  cursor: pointer; }
+  .tooltip:hover .tooltip__text {
+    display: inline-block;
+    opacity: 1; }
+
+.tooltip__text {
+  -webkit-transition: opacity .5s ease;
+  transition: opacity .5s ease;
+  opacity: 0;
+  display: none;
+  position: absolute;
+  top: -26px;
+  margin-left: 10px;
+  min-width: 100px;
+  min-height: 25px;
+  font-weight: bold;
+  line-height: 1.6; }
+  @media only screen and (max-width: 580px) {
+    .tooltip__text {
+      top: 30px;
+      right: 10%; } }
+  @media only screen and (max-width: 430px) {
+    .tooltip__text {
+      top: 53px; } }
+  .tooltip__text:after {
+    content: '';
+    display: block;
+    background: -webkit-linear-gradient(315deg, #3ba8c0 40%, #236472 70%, #3ba8c0);
+    background: linear-gradient(135deg, #3ba8c0 40%, #236472 70%, #3ba8c0);
+    position: absolute;
+    top: -webkit-calc(50% - 4px);
+    top: calc(50% - 4px);
+    left: -4px;
+    width: 8px;
+    height: 8px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg); }
+    @media only screen and (max-width: 580px) {
+      .tooltip__text:after {
+        left: -webkit-calc(50% - 2px);
+        left: calc(50% - 2px);
+        top: -3px; } }
 
 .education-place a {
   color: #4a545d; }
@@ -1005,9 +1053,6 @@ body {
   -webkit-border-radius: 4px;
   border-radius: 4px;
   min-height: 130px; }
-  @media only screen and (max-width: 980px) {
-    .portfolio-item__img, .add-project__cont {
-      min-height: auto; } }
 
 .portfolio-item__link {
   text-transform: lowercase;
@@ -1284,37 +1329,6 @@ body {
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between; }
-
-.tooltip {
-  display: block;
-  padding-left: 10px;
-  padding-right: 10px;
-  min-width: 220px;
-  height: 1.75rem;
-  background-color: #fa9189;
-  position: absolute;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
-  text-align: center;
-  line-height: 1.75rem;
-  color: #fff;
-  z-index: 100; }
-  .tooltip:after {
-    content: '';
-    border-left: 14px solid #fa9189;
-    border-top: 7px solid transparent;
-    border-bottom: 7px solid transparent;
-    position: absolute;
-    top: -webkit-calc(50% - 7px);
-    top: calc(50% - 7px);
-    right: -12px; }
-  .tooltip_large {
-    width: 5.5rem;
-    height: 2rem;
-    line-height: 2rem; }
-    .tooltip_large:after {
-      top: -webkit-calc(50% - 9px);
-      top: calc(50% - 9px); }
 
 .contact-me__header {
   background: -webkit-gradient(linear, left top, left bottom, color-stop(90%, #3ba8c0), color-stop(90%, #51daf8));

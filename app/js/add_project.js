@@ -10,6 +10,7 @@ var addProject = function () {
 	var closeModal = document.querySelectorAll('.js-modalClose');
 	var form = document.querySelector('.js-validation');
 	var inputs = form.querySelectorAll('input, textarea');
+	var inputFile = form.querySelector('input[type="file"]');
 
 	var init = function init() {
 		_setUpListeners();
@@ -27,6 +28,9 @@ var addProject = function () {
 		});
 
 		form.addEventListener('submit', _formValidation);
+
+		// input file change
+		inputFile.addEventListener('change', _showFile);
 	};
 
 	// open Modal
@@ -54,6 +58,7 @@ var addProject = function () {
 		_checkForm();
 	};
 
+	// checkform
 	var _checkForm = function _checkForm() {
 		[].concat(_toConsumableArray(inputs)).forEach(function (input) {
 
@@ -71,6 +76,17 @@ var addProject = function () {
 			}
 		});
 	};
+
+	// input type file change
+
+
+	function _showFile() {
+
+		var inputFileText = document.querySelector('.file-upload');
+
+		inputFileText.innerHTML = this.value + ' \n\t\t\t<input type="file" data-tooltip="\u0417\u0430\u0433\u0440\u0443\u0437\u0438\u0442\u0435 \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0435" id="add-project">\n\t            <a>\n\t          <svg class="app__icon icon icon-cloud-download">\n\t            <use xlink:href="img/sprite.svg#cloud-download"></use>\n\t          </svg>\n\t        </a>\n\t        ';
+	}
+	// end of input type file change
 
 	return {
 		init: init

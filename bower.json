@@ -17,6 +17,7 @@
   "dependencies": {
     "normalize-css": "normalize.css#^5.0.0",
     "svg4everybody": "^2.1.4",
-    "jquery": "latest"
+    "jquery": "latest",
+    "sweetalert": "^1.1.3"
   }
 }

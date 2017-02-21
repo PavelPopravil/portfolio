@@ -60,7 +60,8 @@ gulp.task('scripts:base', function() {
 // Scripts libs
 gulp.task('scripts:libs', function() {
   return gulp.src([
-    'bower_components/svg4everybody/dist/svg4everybody.min.js'
+    'bower_components/svg4everybody/dist/svg4everybody.min.js',
+    'bower_components/sweetalert/dist/sweetalert.min.js'
     ])
     .pipe(uglify('libs.min.js'))
     .pipe(concat('libs.min.js'))
