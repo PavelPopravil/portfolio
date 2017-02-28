@@ -41,7 +41,7 @@ body {
 	min-width: 960px;
 	width: 75%;
 	margin: 0 auto;
-	overflow: hidden;
+	// overflow: hidden;
 	@extend .clearfix;
 	@include respond-to(tablet) {
 		min-width: auto;
@@ -54,7 +54,7 @@ body {
 .sidebar {
 	float: left;
 	width: 25%;
-	min-width: 250px;
+	min-width: 270px;
 
 	@include respond-to(tablet) {
 		// display: none;
@@ -116,7 +116,7 @@ body {
 		}
 	}
 }
-.main-footer {
+.main-footer {;
 	position: relative;
 	flex: 0 0 auto;
 	padding: 20px 0;
@@ -250,13 +250,25 @@ body {
 		visibility: visible;
 	}
 
-	&__item {
+	li {
 		text-align: right;
-		&:last-child .dropdown__link:after {
+		&:last-child a:after {
 			display: none;
 		}
+
+		&.active {
+			a {
+				background-color: $accent-color;
+				color: $white-color;
+				margin-top: -2px;
+
+				&:hover {
+					color: $white-color;
+				}
+			}
+		}
 	}
-	&__link{
+	a {
 
 		position: relative;
 		@include font-type($gray-font-c, $main-font, 14px, 18px, 0px);
@@ -267,17 +279,6 @@ body {
 			color: $accent-color;
 
 		}
-
-		&_active {
-			background-color: $accent-color;
-			color: $white-color;
-			margin-top: -2px;
-
-			&:hover {
-				color: $white-color;
-			}
-		}
-
 		&:after {
 			content: "";
 			position: absolute; bottom: 0px; left: 5%;
@@ -293,9 +294,8 @@ body {
 
 
 // navigation
-.sidebar {
 
-}
+// slide effect
 .slide {
 	transition: all .5s;
 	
@@ -309,6 +309,16 @@ body {
 	&.active {
 		transform: translateX(0);
 		opacity: 1;
+	}
+	@include respond-to(tablet) {
+		transition: none;
+
+		&.to-right {
+			transform: translateX(0);
+		}
+		&.to-left {
+			transform: translateX(0);
+		}
 	}
 }
 
@@ -326,38 +336,74 @@ body {
 .nav__list {
 	@extend .socials;
 	
-}
-.nav__item {
-	&:last-child .nav__link:after {
-		height: 0;
-	}
-}
-.nav__link {
-	position: relative;
-	display: block;
-	padding: 25px;
-	@include font-type($gray-font-c, $main-font, 21px, 27px, 0.2px);
+	li {
 
-	&:after {
-		content: "";
-		position: absolute; bottom: 0px; left: 5%;
-		width: 90%; height: 2px;
-		background-color: $accent-color;
-	}
-	
-	&:hover {
-		color: $accent-color;
+		&:last-child a:after {
+			height: 0;
+		}
+
+		&.active {
+
+			a {
+				background-color: $accent-color;
+				color: $white-color;
+				margin-top: -2px;
+				&:hover {
+					color: $white-color;
+				}
+			}
+		}
 	}
 
-	&_active {
-		background-color: $accent-color;
-		color: $white-color;
-		margin-top: -2px;
+	a {
+		position: relative;
+		display: block;
+		padding: 25px;
+		@include font-type($gray-font-c, $main-font, 21px, 27px, 0.2px);
+
+		&:after {
+			content: "";
+			position: absolute; bottom: 0px; left: 5%;
+			width: 90%; height: 2px;
+			background-color: $accent-color;
+		}
+
 		&:hover {
-			color: $white-color;
+			color: $accent-color;
 		}
 	}
 }
+// .nav__item {
+// 	&:last-child .nav__link:after {
+// 		height: 0;
+// 	}
+// }
+// .nav__link {
+// 	position: relative;
+// 	display: block;
+// 	padding: 25px;
+// 	@include font-type($gray-font-c, $main-font, 21px, 27px, 0.2px);
+
+// 	&:after {
+// 		content: "";
+// 		position: absolute; bottom: 0px; left: 5%;
+// 		width: 90%; height: 2px;
+// 		background-color: $accent-color;
+// 	}
+	
+// 	&:hover {
+// 		color: $accent-color;
+// 	}
+
+// 	&_active {
+// 		background-color: $accent-color;
+// 		color: $white-color;
+// 		margin-top: -2px;
+// 		&:hover {
+// 			color: $white-color;
+// 		}
+// 	}
+// }
 
 // contacts
 .sidebar_contacts {
@@ -401,9 +447,10 @@ body {
 }
 .contacts__link {
 	display: flex;
+	align-items: center;
 	@extend .contacts__title;
 	padding: 10px 0;
-	margin-left: 40px;
+	margin-left: 20px;
 	
 	@include respond-to(tablet) {
 		justify-content: center;
@@ -673,7 +720,7 @@ body {
 // footer-wrap
 .footer-wrap {
 	display: flex;
-	width: 80%;
+	width: 75%;
 	margin: 0 auto;
 	align-items: center;
 }
